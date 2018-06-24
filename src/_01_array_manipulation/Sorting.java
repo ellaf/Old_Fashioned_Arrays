@@ -7,10 +7,10 @@ public class Sorting {
 	String[] me = {};
 	public static void main(String[] args) {
 	Sorting s = new Sorting();
-	String[] candy = {"banana", "zinc", "rain"};
-	String[] moo = s.sort(candy);
-	String mooB = Arrays.toString(moo);
-	System.out.println(mooB);
+	//String[] candy = {"banana", "zinc", "rain"};
+	//String[] moo = s.sort(candy);
+	//String mooB = Arrays.toString(moo);
+	//System.out.println(mooB);
 	}
 	public static String[] sort(String[] a){
 	for (int j = 0; j < a.length; j++) {
