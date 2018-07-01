@@ -1,5 +1,7 @@
 package _01_array_manipulation;
 
+import java.util.ArrayList;
+
 public class Inserting {
 
 	
@@ -34,7 +36,7 @@ public class Inserting {
 	}
 	
 	c[d] = b;
-	
+	ArrayList banana;
 	for (int i = 0; i < a.length - d; i++) {
 	c[d+i+1] = a[d+i];
 	}		
