@@ -30,9 +30,14 @@ public class ArrayList<E> implements List{
 	@Override
 	public boolean contains(Object o) {
 		// TODO Auto-generated method stub
+		boolean tf = false;
+		for (int i = 0; i < kevin.length; i++) {
+			if (kevin[i] == o) {
+				tf = true;
+			}
+		}
 		
-		
-		return false;
+		return tf;
 	}
 
 	@Override
@@ -74,6 +79,7 @@ public class ArrayList<E> implements List{
 	@Override
 	public boolean remove(Object o) {
 		// TODO Auto-generated method stub
+		
 		
 		
 		return false;
@@ -154,25 +160,46 @@ public class ArrayList<E> implements List{
 	public void addAt(int index, Object element) {
 		// TODO Auto-generated method stub
 	
-		int big = kevin.length;
-		Object[] patricia = new Object[big];
-	for (int i = index; i < big; i++) {
-		int num = 0;
-	patricia[num] = kevin[i];
-	num ++;
+	int realLength = 0;
+		for (int i = 0; i < kevin.length; i++) {
+		if (kevin[i] != null) {
+			realLength ++;
+		}
 	}
-	kevin[index] = element;
-	for (int i = 0; i < big-index; i++) {
-	kevin[index+1+i] = patricia[i];
+	Object[] patricia = new Object[kevin.length];
+	for (int i = 0; i < index; i++) {
+	patricia[i] = kevin[i];
 	}
-	System.out.println("hello");		
+	patricia[index] = element;
+	for (int i = index+1; i < kevin.length; i++) {
+	patricia[i] = kevin[i-1];
 	}
-
+	for (int i = 0; i < realLength+1; i++) {
+	kevin[i] = patricia[i];
+	}
+	
+	}
 	@Override
 	public Object remove(int index) {
 		// TODO Auto-generated method stub
 		
-		
+		int realVal = 0;
+		for (int i = 0; i < kevin.length; i++) {
+			if (kevin[i] != null) {
+				realVal ++;
+			}
+		}
+		Object[] calvin = new Object[kevin.length-1];
+		for (int i = 0; i < index; i++) {
+			calvin[i] = kevin[i];
+		}
+		for (int i = index; i < realVal; i++) {
+			calvin[i] = kevin[i+1];
+		}
+		for (int i = 0; i < calvin.length; i++) {
+			kevin[i]=calvin[i];
+		}
+		kevin[calvin.length] = null;
 		return null;
 	}
 
